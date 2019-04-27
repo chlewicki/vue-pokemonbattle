@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Battle</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+</head>
+
+<body>
+    <main id="app">
+        <article class="battle">
+            <!--enemy-->
+            <section class="character">
+                <div class="characterbox">
+                    <p class="charactername">{{ enemy }}</p>
+                    <div class="healthbar">
+                        <div class="currhealth" :style="{'width': enemyCurrHealth + '%'}"></div>
+                        <p class="numberhealth">{{ enemyCurrHealth + ' / 100'}}</p>
+                    </div>
+                </div>
+                <div class="characterimage">
+                    <img src="./img/mewtwo.png" alt="">
+                </div>
+            </section>
+
+            <!--player-->
+            <section class="character">
+                <div class="characterimage">
+                    <img src="./img/diglett.png" alt="">
+                </div>
+                <div class="characterbox">
+                    <p class="charactername">{{ me }}</p>
+                    <div class="healthbar myhealthbar">
+                        <div class="currhealth mycurrhealth" :style="{'width': myCurrHealth + '%'}"></div>
+                        <p class="numberhealth">{{ myCurrHealth + ' / 100'}}</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--buttons-->
+            <section class="buttons">
+                <template v-if="freeze">
+                    <button @click="startGame">New Game</button>
+                </template>
+                <template v-else>
+                    <button @click="attack" id="attack">attack</button>
+                    <button @click="specialAttack" id="specialattack">special attack</button>
+                    <button @click="heal" id="heal">heal</button>
+                </template>
+            </section>
+        </article>
+
+        <article class="log">
+            <div v-for="log in logs">
+                <template v-if="log.user == enemy">
+                    <div class="enemylog">
+                        <p><b>{{ log.user }}</b> used {{log.attack}}!</p>
+                    </div>
+                </template>
+                <template v-else>
+                    <div class="mylog">
+                        <p><b>{{ log.user }}</b> used {{log.attack}}!</p>
+                    </div>
+                </template>
+            </div>
+        </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
