@@ -147,4 +147,7 @@ button {
         margin: 10px;
         font-size: 10px
     }
+    .characterbox{
+        width: 63%;
+    }
 }
