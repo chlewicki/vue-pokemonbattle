@@ -115,7 +115,7 @@ button {
     text-align: center;
     width: 25%;
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     box-sizing: border-box;
     padding: 10px;
 }
