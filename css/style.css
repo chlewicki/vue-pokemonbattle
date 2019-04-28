@@ -150,6 +150,7 @@ button {
         flex-direction: column;
     }
     .battle{
-        height: 70vh;
+        height: auto;
+        min-height: 70vh;
     }
 }
