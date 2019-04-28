@@ -17,25 +17,25 @@
             <section class="character">
                 <div class="characterbox">
                     <p class="charactername">{{ enemy }}</p>
-                    <div class="healthbar">
+                    <div class="healthbar" v-bind:class="enemyCurrHealth < 26 ? 'red' : enemyCurrHealth < 51 ? 'yellow' : 'green'">
                         <div class="currhealth" :style="{'width': enemyCurrHealth + '%'}"></div>
                         <p class="numberhealth">{{ enemyCurrHealth + ' / 100'}}</p>
                     </div>
                 </div>
-                <div class="characterimage">
+                <div class="characterimage" :style="{'margin-right': isEnemyAttacking}">
                     <img src="./img/mewtwo.png" alt="">
                 </div>
             </section>
 
             <!--player-->
             <section class="character">
-                <div class="characterimage">
+                <div class="characterimage" :style="{'margin-left': isAttacking}">
                     <img src="./img/diglett.png" alt="">
                 </div>
                 <div class="characterbox">
                     <p class="charactername">{{ me }}</p>
-                    <div class="healthbar myhealthbar">
-                        <div class="currhealth mycurrhealth" :style="{'width': myCurrHealth + '%'}"></div>
+                    <div class="healthbar" v-bind:class="myCurrHealth < 26 ? 'red' : myCurrHealth < 51 ? 'yellow' : 'green'">
+                        <div class="currhealth" :style="{'width': myCurrHealth + '%'}"></div>
                         <p class="numberhealth">{{ myCurrHealth + ' / 100'}}</p>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                 </template>
                 <template v-else>
                     <button @click="attack" id="attack">attack</button>
-                    <button @click="specialAttack" id="specialattack">special attack</button>
-                    <button @click="heal" id="heal">heal</button>
+                    <button @click="specialAttack" id="specialattack">special attack ({{ mySpecials }})</button>
+                    <button @click="heal" id="heal">heal ({{ myHeals }})</button>
                 </template>
             </section>
         </article>

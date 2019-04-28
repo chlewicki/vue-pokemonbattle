@@ -76,7 +76,6 @@ button {
     width: 100%;
     height: 40px;
     position: relative;
-    background: #78FFC4;
     margin-top: 10px;
 }
 
@@ -85,17 +84,17 @@ button {
     top: 0;
     left: 0;
     height: 100%;
-    background: #1EB373;
+    background: inherit;
 }
-
-.myhealthbar {
-    background: #FFD0C7;
+.red{
+    background: rgba(255, 0, 0, 0.5);
 }
-
-.mycurrhealth {
-    background: #FF775F;
+.green{
+    background: rgba(0, 128, 0, 0.5);
 }
-
+.yellow{
+    background: rgba(255, 255, 0, 0.5);
+}
 .numberhealth {
     position: absolute;
     top: 50%;
