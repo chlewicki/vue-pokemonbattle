@@ -145,12 +145,6 @@ button {
 @media(max-width: 500px){
     button{
         margin: 10px;
-    }
-    .buttons{
-        flex-direction: column;
-    }
-    .battle{
-        height: auto;
-        min-height: 70vh;
+        font-size: 10px
     }
 }
