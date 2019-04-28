@@ -27,7 +27,7 @@ button {
 }
 .battle{
     width: 70%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -128,4 +128,28 @@ button {
 }
 .mylog{
     background: #FBFBF2;
+}
+@media(max-width: 900px){
+    #app{
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .log{
+        height: auto;
+        width: 100%;
+    }
+    .battle{
+        width: 100%;
+    }
+}
+@media(max-width: 500px){
+    button{
+        margin: 10px;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .battle{
+        height: 70vh;
+    }
 }
