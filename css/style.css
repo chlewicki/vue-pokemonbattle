@@ -130,6 +130,30 @@ button {
 .mylog{
     background: #FBFBF2;
 }
+  .slide-enter {
+    margin-top: 0px;
+    height: 0px;
+    font-size: 0px;
+    border: 0px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .slide-enter-active {
+    transition: all 0.3s ease-in-out;
+    /* margin-top: 0; */
+  }
+  .slide-leave {
+  }
+  .slide-leave-active {
+    transition: 0.3s all ease-in-out;
+    margin-top: 0px;
+    margin-bottom: 0;
+    height: 0px;
+    font-size: 0px;
+    border: 0px;
+    padding: 0;
+  }
+
 @media(max-width: 900px){
     #app{
         flex-direction: column;

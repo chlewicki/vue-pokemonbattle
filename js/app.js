@@ -33,7 +33,7 @@ new Vue({
         },
         attack: function () {
             this.disableButtons();
-            this.logs.unshift({ user: this.me, attack: 'attack' });
+            this.logs.unshift({ id: this.logs.length, user: this.me, attack: 'attack' });
             var after = this.enemyCurrHealth - this.calcDamage(3, 7);
             this.attackModel('enemy', after);
         },
@@ -55,7 +55,7 @@ new Vue({
                 this.enableButtons();
             } else {
                 if (this.myHeals > 0) {
-                    this.logs.unshift({ user: this.me, attack: 'heal' });
+                    this.logs.unshift({ id: this.logs.length, user: this.me, attack: 'heal' });
                     var after = this.myCurrHealth + this.calcDamage(7, 20);
                     this.healModel('me', after);
                     this.myHeals--;
@@ -76,7 +76,7 @@ new Vue({
         },
         enemyAttack: function () {
             var after = this.myCurrHealth - this.calcDamage(3, 12);
-            this.logs.unshift({ user: this.enemy, attack: 'attack' });
+            this.logs.unshift({ id: this.logs.length, user: this.enemy, attack: 'attack' });
             this.attackModel('me', after);
         },
         enemySpecialAttack: function () {
@@ -94,7 +94,7 @@ new Vue({
                 this.enemyMove();
             } else {
                 if (this.enemyHeals > 0) {
-                    this.logs.unshift({ user: this.enemy, attack: 'heal' });
+                    this.logs.unshift({ id: this.logs.length, user: this.enemy, attack: 'heal' });
                     var after = this.enemyCurrHealth + this.calcDamage(3, 10);
                     this.healModel('enemy', after);
                     this.enemyHeals--;
@@ -204,10 +204,10 @@ new Vue({
             var rand = this.calcDamage(1, 10);
             if (rand <= 5) {
                 rand = this.calcDamage(1, 2);
-                this.logs.unshift({ user: player, attack: 'special attack, but it failed' });
+                this.logs.unshift({ id: this.logs.length, user: player, attack: 'special attack, but it failed' });
             } else {
                 rand = this.calcDamage(5, 15);
-                this.logs.unshift({ user: player, attack: 'special attack and it was successfull' });
+                this.logs.unshift({ id: this.logs.length, user: player, attack: 'special attack and it was successfull' });
             }
             return rand;
         }

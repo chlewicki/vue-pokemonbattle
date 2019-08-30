@@ -17,7 +17,8 @@
             <section class="character">
                 <div class="characterbox">
                     <p class="charactername">{{ enemy }}</p>
-                    <div class="healthbar" v-bind:class="enemyCurrHealth < 26 ? 'red' : enemyCurrHealth < 51 ? 'yellow' : 'green'">
+                    <div class="healthbar"
+                        v-bind:class="enemyCurrHealth < 26 ? 'red' : enemyCurrHealth < 51 ? 'yellow' : 'green'">
                         <div class="currhealth" :style="{'width': enemyCurrHealth + '%'}"></div>
                         <p class="numberhealth">{{ enemyCurrHealth + ' / 100'}}</p>
                     </div>
@@ -34,7 +35,8 @@
                 </div>
                 <div class="characterbox">
                     <p class="charactername">{{ me }}</p>
-                    <div class="healthbar" v-bind:class="myCurrHealth < 26 ? 'red' : myCurrHealth < 51 ? 'yellow' : 'green'">
+                    <div class="healthbar"
+                        v-bind:class="myCurrHealth < 26 ? 'red' : myCurrHealth < 51 ? 'yellow' : 'green'">
                         <div class="currhealth" :style="{'width': myCurrHealth + '%'}"></div>
                         <p class="numberhealth">{{ myCurrHealth + ' / 100'}}</p>
                     </div>
@@ -55,18 +57,20 @@
         </article>
 
         <article class="log">
-            <div v-for="log in logs">
-                <template v-if="log.user == enemy">
-                    <div class="enemylog">
-                        <p><b>{{ log.user }}</b> used {{log.attack}}!</p>
-                    </div>
-                </template>
-                <template v-else>
-                    <div class="mylog">
-                        <p><b>{{ log.user }}</b> used {{log.attack}}!</p>
-                    </div>
-                </template>
-            </div>
+            <transition-group name="slide">
+                <div v-for="(log, index) in logs" :key="log.id">
+                    <template v-if="log.user == enemy">
+                        <div class="enemylog">
+                            <p><b>{{ log.user }}</b> used {{log.attack}}!</p>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <div class="mylog">
+                            <p><b>{{ log.user }}</b> used {{log.attack}}!</p>
+                        </div>
+                    </template>
+                </div>
+            </transition-group>
         </article>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
